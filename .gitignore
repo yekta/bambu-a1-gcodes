@@ -1,0 +1,56 @@
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Node / JS
+node_modules/
+dist/
+build/
+coverage/
+.cache/
+.parcel-cache/
+.next/
+.out/
+*.tsbuildinfo
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.eggs/
+*.egg
+.build/
+dist/
+venv/
+.env/
+.mypy_cache/
+.pytest_cache/
+.poetry/
+
+# Packages / archives
+*.tgz
+*.zip
+
+# Misc
+coverage-final.json
+.husky/_/
