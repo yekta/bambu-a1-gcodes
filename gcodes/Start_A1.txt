@@ -486,6 +486,7 @@ M622 J1
     M400
     M500 ; save cali data
 M623
+G1 E-2 F1800 ; Retract after bed leveling to prevent oozing
 ;===== Bed leveling end ================================
 
 ;===== Home after wipe mouth============================
@@ -580,7 +581,7 @@ M400
 
 G1 Z3 F800 ; move nozzle up a little
 M106 P1 S255 ; turn on fan to cool tip of nozzle, prevents oozing
-M109 S{nozzle_temperature_initial_layer[initial_extruder]-20} ; wait for warm up but don't fully heat yet to prevent oozing
+M109 S{nozzle_temperature_initial_layer[initial_extruder]-40} ; wait for warm up but don't fully heat yet to prevent oozing
 
 ;===== for Textured PEI Plate , lower the nozzle as the nozzle was touching topmost of the texture when homing ==
 ;curr_bed_type={curr_bed_type}
