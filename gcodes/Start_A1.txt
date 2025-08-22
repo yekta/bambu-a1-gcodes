@@ -604,5 +604,9 @@ M211 X0 Y0 Z0 ;turn off soft endstop
 M1007 S1 ; turn on mass estimation
 G29.4
 
-G0 E2.2 F800 ; Extrude a little so nozzle is filled for print start you might have to increase this up to E2.5 depending on your filament
-M104 S{nozzle_temperature_initial_layer[initial_extruder]} ; heat up to full temp in first few moves
+; ======= PLA anti-ooze prime =======
+G0 E1.6 F800      ; prime just enough to fill the tip
+G1 E-0.7 F1800    ; retract to de-pressurize so it won't dangle
+M104 S{nozzle_temperature_initial_layer[initial_extruder]} ; set full temp
+M109 S{nozzle_temperature_initial_layer[initial_extruder]} ; wait so first move re-primes cleanly
+; ==================================
