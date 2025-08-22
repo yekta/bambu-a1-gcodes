@@ -1,0 +1,43 @@
+; === fan_press_test (runs BEFORE any printing) ===
+G90
+M83
+G28                     ; home all
+
+; avoid heat/fans (in case Studio queued any)
+M104 S0                 ; hotend off
+M140 S0                 ; bed off
+M106 S0                 ; part cooling fan off
+
+; park & test press
+G1 X-48 Y262 F3600      ; safe left/front
+G1 Z256 F900            ; up to max Z
+
+G1 X264 F3600
+G1 X274 F300            ; gentle press (bump to 263/264 if needed)
+M400                    ; wait for motion
+G1 X264 F300            ; back off a little
+
+G4 P5000   ; wait 5000 ms = 5 seconds
+
+G1 X264 F3600
+G1 X274 F300            ; gentle press (bump to 263/264 if needed)
+M400                    ; wait for motion
+G1 X264 F300            ; back off a little
+
+G4 P5000   ; wait 5000 ms = 5 seconds
+
+G1 X264 F3600
+G1 X274 F300            ; gentle press (bump to 263/264 if needed)
+M400                    ; wait for motion
+G1 X264 F300            ; back off a little
+
+G4 P5000   ; wait 5000 ms = 5 seconds
+
+G1 X264 F3600
+G1 X274 F300            ; gentle press (bump to 263/264 if needed)
+M400                    ; wait for motion
+G1 X264 F300            ; back off a little
+
+G4 P5000   ; wait 5000 ms = 5 seconds
+
+G1 X-48 F3600           ; return left
