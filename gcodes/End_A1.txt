@@ -1,4 +1,4 @@
-;===== End Code for A1 =====================
+;===== End code for A1 =====================
 ;===== Date: 20250822 =====================
 ;Largely based on FactorianDesigns' original work.
 
@@ -114,8 +114,8 @@ M400				;wait for all print moves to be done
 G90   
 G1 X-48 Y262 F3600 ; move to safe limit position on the left
 
-;===== Cool Down =======
-; --- press button at top-right ---
+;===== Cool down =======
+; --- Press external fan button at top-right ---
 G1 Z256             ; go to top of Z (A1 max height)
 G1 X264 F3600       ; move right fast to get close to external fan switch
 G1 X274 F300        ; move right slowly to press external fan switch
@@ -174,7 +174,7 @@ G1 X274 F300        ; press button again to turn fan off
 G1 X-48 F3600       ; back to safe left
 
 				
-;======= Cool Down Done, Start Push Off =============
+;======= Cooldown done, start push off =============
 ; calculate a good z-pushoff height, BE CAREFUL this could be a little different for parts
 ; that are fragile in the top, parts below 32 mm heigth can't be pushed off using the gantry
 ; if your part is too small then use the extruder head for push off and comment out the line "G1 Y1 F300"
@@ -234,7 +234,7 @@ M201.2 K1.0 ; Reset acc magnitude
 M73.2   R1.0 ;Reset left time magnitude
 M1002 set_gcode_claim_speed_level : 0
 
-;=====printer finish  sound=========
+;===== Printer finish sound =========
 M17
 M400 S1
 M1006 S1
@@ -256,7 +256,7 @@ M1006 A44 B20 L100 C49 D20 M80 E41 F20 N80
 M1006 A0 B20 L100 C0 D20 M60 E0 F20 N80
 M1006 A0 B20 L100 C37 D20 M30 E37 F20 N60
 M1006 W
-;=====printer finish  sound=========
+;===== Printer finish sound end =========
 
 ;M17 X0.8 Y0.8 Z0.5 ; lower motor current to 45% power
 M400
