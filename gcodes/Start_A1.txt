@@ -7,13 +7,13 @@ M9833.2
 ;M400
 ;M73 P1.717
 
-;===== start to heat heatbead&hotend==========
+;===== Start to heat heatbead&hotend==========
 M1002 gcode_claim_action : 2
 M1002 set_filament_type:{filament_type[initial_no_support_extruder]}
-M104 S140
+M104 S170
 M140 S[bed_temperature_initial_layer_single]
 
-;=====start printer sound ===================
+;===== Start printer sound ===================
 M17
 M400 S1
 M1006 S1
@@ -83,8 +83,8 @@ G1 E10 F1200
 G1 E-0.5 F30
 M17 D
 
-G28 Z P0 T140; home z with low precision,permit 300deg temperature
-M104 S{nozzle_temperature_initial_layer[initial_extruder]}
+G28 Z P0 T140 ; home z with low precision, permit 300deg temperature
+M104 S170
 
 M1002 judge_flag build_plate_detect_flag
 M622 S1
@@ -136,18 +136,12 @@ M400
 M106 P1 S178
 G92 E0
 G1 E5 F200
-M104 S{nozzle_temperature_initial_layer[initial_no_support_extruder]}
+
+; --- Mini-style cool-down shrink before any wiping/travel ---
+M109 S{nozzle_temperature_initial_layer[initial_no_support_extruder]-20} ; wait but keep a bit cool
+M104 S{nozzle_temperature_initial_layer[initial_no_support_extruder]-40}  ; drop further so the tip contracts
 G92 E0
 G1 E-0.5 F300
-
-G1 X-28.5 F30000    ;wipe and shake
-G1 X-48.2 F3000     ;wipe and shake
-
-G1 X-28.5 F30000    ;wipe and shake
-G1 X-48.2 F3000     ;wipe and shake
-
-G1 X-28.5 F30000    ;wipe and shake
-G1 X-48.2 F3000     ;wipe and shake
 
 G1 X-28.5 F30000    ;wipe and shake
 G1 X-48.2 F3000     ;wipe and shake
