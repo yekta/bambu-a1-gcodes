@@ -7,13 +7,13 @@ M9833.2
 ;M400
 ;M73 P1.717
 
-;===== Start to heat heatbead & hotend ==========
+;===== start to heat heatbead&hotend==========
 M1002 gcode_claim_action : 2
 M1002 set_filament_type:{filament_type[initial_no_support_extruder]}
 M104 S140
 M140 S[bed_temperature_initial_layer_single]
 
-;===== Start sound ===================
+;=====start printer sound ===================
 M17
 M400 S1
 M1006 S1
@@ -36,15 +36,15 @@ M1006 A0 B10 L100 C0 D10 M60 E0 F10 N80
 M1006 A43 B10 L100 C46 D10 M60 E39 F10 N80
 M1006 W
 M18 
-;===== Printer sound end ===================
+;=====start printer sound ===================
 
-;===== Avoid end stop =================
+;=====avoid end stop =================
 G91
 G380 S2 Z40 F1200
 G380 S3 Z-15 F1200
 G90
 
-;===== Reset machine status =================
+;===== reset machine status =================
 ;M290 X39 Y39 Z8
 M204 S6000
 
@@ -61,7 +61,7 @@ M221 S100 ;Reset Flowrate
 M73.2   R1.0 ;Reset left time magnitude
 ;M211 X0 Y0 Z0 ; turn off soft endstop to prevent protential logic problem
 
-;====== Cog noise reduction=================
+;====== cog noise reduction=================
 M982.2 S1 ; turn on cog noise reduction
 
 M1002 gcode_claim_action : 13
@@ -96,7 +96,7 @@ M623
 ;M400
 ;M73 P1.717
 
-;===== Prepare print temperature and material ==========
+;===== prepare print temperature and material ==========
 M1002 gcode_claim_action : 24
 
 M400
@@ -140,34 +140,40 @@ M104 S{nozzle_temperature_initial_layer[initial_no_support_extruder]}
 G92 E0
 G1 E-0.5 F300
 
-G1 X-28.5 F30000 ;wipe and shake
-G1 X-48.2 F3000
+G1 X-28.5 F30000    ;wipe and shake
+G1 X-48.2 F3000     ;wipe and shake
 
-G1 X-28.5 F30000 ;wipe and shake
-G1 X-48.2 F3000
+G1 X-28.5 F30000    ;wipe and shake
+G1 X-48.2 F3000     ;wipe and shake
 
-G1 X-28.5 F30000 ;wipe and shake
-G1 X-48.2 F3000
+G1 X-28.5 F30000    ;wipe and shake
+G1 X-48.2 F3000     ;wipe and shake
 
-G1 X-28.5 F30000 ;wipe and shake
-G1 X-48.2 F3000
+G1 X-28.5 F30000    ;wipe and shake
+G1 X-48.2 F3000     ;wipe and shake
 
-G1 X-28.5 F30000 ;wipe and shake
-G1 X-48.2 F3000
+G1 X-28.5 F30000    ;wipe and shake
+G1 X-48.2 F3000     ;wipe and shake
 
-G1 X-28.5 F30000 ;wipe and shake
-G1 X-48.2 F3000
+G1 X-28.5 F30000    ;wipe and shake
+G1 X-48.2 F3000     ;wipe and shake
+
+G1 X-28.5 F30000    ;wipe and shake
+G1 X-48.2 F3000     ;wipe and shake
+
+G1 X-28.5 F30000    ;wipe and shake
+G1 X-48.2 F3000     ;wipe and shake
 
 ;G392 S0
 
 M400
 M106 P1 S0
-;===== Prepare print temperature and material end =====
+;===== prepare print temperature and material end =====
 
 ;M400
 ;M73 P1.717
 
-;===== Auto extrude calibration start =========================
+;===== auto extrude cali start =========================
 M975 S1
 ;G392 S1
 
@@ -236,7 +242,7 @@ M622 J1
 M623 ; end of "draw extrinsic para cali paint"
 
 ;G392 S0
-;===== Auto extrude calibration end ========================
+;===== auto extrude cali end ========================
 
 ;M400
 ;M73 P1.717
@@ -244,7 +250,7 @@ M623 ; end of "draw extrinsic para cali paint"
 M104 S170 ; prepare to wipe nozzle
 M106 S255 ; turn on fan
 
-;===== Mech mode fast check start =====================
+;===== mech mode fast check start =====================
 ;M1002 gcode_claim_action : 3
 ;
 ;G1 X128 Y128 F20000
@@ -272,12 +278,12 @@ M106 S255 ; turn on fan
 ;
 ;G1 Z4 F1200
 
-;===== Mech mode fast check end =======================
+;===== mech mode fast check end =======================
 
 ;M400
 ;M73 P1.717
 
-;===== Wipe nozzle ===============================
+;===== wipe nozzle ===============================
 M1002 gcode_claim_action : 14
 
 M975 S1
@@ -285,7 +291,7 @@ M106 S255 ; turn on fan (G28 has turn off fan)
 M211 S; push soft endstop status
 M211 X0 Y0 Z0 ;turn off Z axis endstop
 
-;===== Remove waste by touching start =====
+;===== remove waste by touching start =====
 
 M104 S170 ; set temp down to heatbed acceptable
 
@@ -359,7 +365,7 @@ G1 X148 F10000
 G380 S3 Z-5 F1200
 
 G1 Z5 F30000
-;===== Remove waste by touching end =====
+;===== remove waste by touching end =====
 
 G1 Z10 F1200
 G0 X118 Y261 F30000
@@ -399,7 +405,7 @@ G2 I-0.75 J0 X-1.5
 G90
 G1 Z10 F1200
 
-;===== Brush material wipe nozzle =====
+;===== brush material wipe nozzle =====
 
 G90
 G1 Y250 F30000
@@ -438,7 +444,7 @@ G1 Y-0.5
 G1 X-45
 G1 Z10.000 F1200
 
-;===== Brush material wipe nozzle end =====
+;===== brush material wipe nozzle end =====
 
 G90
 ;G0 X128 Y261 F20000  ; move to exposed steel surface
@@ -474,12 +480,12 @@ M106 S255 ; turn on fan (G28 has turn off fan)
 
 M211 R; pop softend status
 
-;===== Wipe nozzle end ================================
+;===== wipe nozzle end ================================
 
 ;M400
 ;M73 P1.717
 
-;===== Bed leveling ==================================
+;===== bed leveling ==================================
 M1002 judge_flag g29_before_print_flag
 
 G90
@@ -497,10 +503,9 @@ M622 J1
     M400
     M500 ; save cali data
 M623
-G1 E-2 F1800 ; Retract after bed leveling to prevent oozing
-;===== Bed leveling end ================================
+;===== bed leveling end ================================
 
-;===== Home after wipe mouth============================
+;===== home after wipe mouth============================
 M1002 judge_flag g29_before_print_flag
 M622 J0
 
@@ -509,7 +514,7 @@ M622 J0
 
 M623
 
-;===== Home after wipe mouth end =======================
+;===== home after wipe mouth end =======================
 
 ;M400
 ;M73 P1.717
@@ -521,7 +526,7 @@ G2814 Z0.32
 
 M104 S{nozzle_temperature_initial_layer[initial_extruder]} ; prepare to print
 
-;===== Nozzle load line ===============================
+;===== nozzle load line ===============================
 ;G90
 ;M83
 ;G1 Z5 F1200
@@ -535,7 +540,7 @@ M104 S{nozzle_temperature_initial_layer[initial_extruder]} ; prepare to print
 ;G1 Z1 F1200
 ;===== nozzle load line end ===========================
 
-;===== Extrude calibration test ===============================
+;===== extrude cali test ===============================
 
 ;M400
 ;    M900 S
@@ -586,13 +591,13 @@ M104 S{nozzle_temperature_initial_layer[initial_extruder]} ; prepare to print
 ;M400
 ;M73 P1.717
 
-;======== Turn off light and wait extrude temperature =============
+;========turn off light and wait extrude temperature =============
 M1002 gcode_claim_action : 0
 M400
 
 G1 Z3 F800 ; move nozzle up a little
 M106 P1 S255 ; turn on fan to cool tip of nozzle, prevents oozing
-M109 S{nozzle_temperature_initial_layer[initial_extruder]-40} ; wait for warm up but don't fully heat yet to prevent oozing
+M109 S{nozzle_temperature_initial_layer[initial_extruder]-20} ; wait for warm up but don't fully heat yet to prevent oozing
 
 ;===== for Textured PEI Plate , lower the nozzle as the nozzle was touching topmost of the texture when homing ==
 ;curr_bed_type={curr_bed_type}
@@ -616,5 +621,5 @@ M211 X0 Y0 Z0 ;turn off soft endstop
 M1007 S1 ; turn on mass estimation
 G29.4
 
-G0 E2 F800 ; Extrude a little so nozzle is filled for print start you might have to increase this up to E2.5 depending on your filament
+G0 E2.2 F800 ; Extrude a little so nozzle is filled for print start you might have to increase this up to E2.5 depending on your filament
 M104 S{nozzle_temperature_initial_layer[initial_extruder]} ; heat up to full temp in first few moves
