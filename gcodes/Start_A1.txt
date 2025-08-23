@@ -155,6 +155,9 @@ G1 X-48.2 F3000
 G1 X-28.5 F30000 ;wipe and shake
 G1 X-48.2 F3000
 
+G1 X-28.5 F30000 ;wipe and shake
+G1 X-48.2 F3000
+
 ;G392 S0
 
 M400
