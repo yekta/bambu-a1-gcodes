@@ -171,6 +171,7 @@ M140 S0 ; turn off bed
 
 ; --- Press again to turn fan off, then return ---
 G1 X274 F300        ; press button again to turn fan off
+G1 X264 F300        ; move away a little
 G1 X-48 F3600       ; back to safe left
 
 				
