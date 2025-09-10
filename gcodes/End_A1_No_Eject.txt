@@ -121,9 +121,7 @@ G1 X264 F3600       ; move right fast to get close to external fan switch
 G1 X274 F300        ; move right slowly to press external fan switch
 G1 X264 F300        ; move away a little
 			  
-M190 S22	;wait for bed temp, Enter your own target cooldown temperature here
-M190 S22	;wait for bed temp, Enter your own target cooldown temperature here
-M190 S22	;wait for bed temp, Enter your own target cooldown temperature here
+G4 S120 ; wait 120 seconds
 
 M140 S0 ; turn off bed
 
@@ -131,7 +129,7 @@ M140 S0 ; turn off bed
 G1 X274 F300        ; press button again to turn fan off
 G1 X264 F300        ; move away a little
 G1 X-48 F3600       ; back to safe left
-G1 Z100 F600        ; move Z down to avoid hitting the fan switch on filament changes
+G1 Z50 F600        ; move Z down to avoid hitting the fan switch on filament changes
 
 ;====== Fan sequence complete =======
 																							
