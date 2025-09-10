@@ -131,6 +131,7 @@ M140 S0 ; turn off bed
 G1 X274 F300        ; press button again to turn fan off
 G1 X264 F300        ; move away a little
 G1 X-48 F3600       ; back to safe left
+G1 Z100 F600        ; move Z down to avoid hitting the fan switch on filament changes
 
 ;====== Fan sequence complete =======
 																							
