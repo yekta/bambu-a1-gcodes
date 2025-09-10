@@ -121,7 +121,7 @@ G1 X264 F3600       ; move right fast to get close to external fan switch
 G1 X274 F300        ; move right slowly to press external fan switch
 G1 X264 F300        ; move away a little
 			  
-G4 S120 ; wait 120 seconds
+G4 S240 ; wait 240 seconds
 
 M140 S0 ; turn off bed
 
